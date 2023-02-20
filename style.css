@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+@font-face {
+    font-family: 'Norse-bold';
+    font-weight: bold;
+    src: url("./Norse-Bold.otf") format("opentype");
+}
+
+
+:root {
+    --input-border: #E5E7EB;
+    --btn-background: #596D48;
+}
+
+html {
+    font-family: 'Roboto', serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
