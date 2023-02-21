@@ -209,6 +209,14 @@ input {
   max-width: 12.5rem;
 }
 
+.form-btn:hover {
+    opacity: 0.85;
+}
+
+.form-btn:active {
+    top: 5px;
+}
+
 .link {
     margin-left: 2.5rem;
     font-size: 0.95rem;
