@@ -201,10 +201,21 @@ input {
 
   padding: 15px 10px;
   margin-left: 2.5rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 
   background-color: var(--btn-background);
   color: #fff;
-  
+
   max-width: 12.5rem;
+}
+
+.link {
+    margin-left: 2.5rem;
+    font-size: 0.95rem;
+}
+
+.link a {
+    color: #596D48;
+    text-decoration: none;
+    font-weight: 700;
 }
