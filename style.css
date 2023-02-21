@@ -141,6 +141,7 @@ input {
     background-color: #fff;
 
     box-shadow: 6px 3px 4px 4px var(--input-border);
+    
  }
 
 .form-heading {
@@ -155,13 +156,15 @@ input {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    width: 100%;
     max-width: 37.5rem;
 }
+
 
 .field {
     display: flex;
     flex-direction: column;
-    max-width: 100%;
+    margin-bottom: 10px;
 }
 
 .field label {
