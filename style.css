@@ -38,6 +38,15 @@ a {
     color: inherit;
 }
 
+input, button {
+    appearance: none;
+}
+
+input {
+    font-size: inherit;
+    font-weight: 500;
+}
+
 
 .container {
     display: flex;
@@ -134,10 +143,32 @@ a {
     box-shadow: 6px 3px 4px 4px var(--input-border);
  }
 
- .form-heading {
+.form-heading {
     font-size: 1.25rem;
     letter-spacing: 2px;
     font-weight: 700;
     margin-bottom: 1.25rem;
     width: 100%;
  }
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 37.5rem;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+}
+
+.field label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
