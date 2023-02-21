@@ -70,7 +70,7 @@ input {
  }
  
  .right {
-    width: 100%;
+    flex: 100%;
 
     justify-content: center;    
 }
@@ -227,3 +227,35 @@ input {
     text-decoration: none;
     font-weight: 700;
 }
+
+/* validation selectors */
+
+
+
+
+
+/* .field input:enabled {
+    border: 1px solid black;
+} */
+
+.field input::placeholder {
+    font-size: 0.9rem;
+    color:rgb(209, 209, 209);
+}
+
+.field input:required {
+    border: 1px solid rgb(200, 198, 198);
+}
+
+
+.error {
+    border-bottom: 1px solid red !important; 
+}
+
+.success{
+    border-bottom: 1px solid green !important;
+}
+
+/* .field input:invalid {
+    border: 1px solid red;
+} */
