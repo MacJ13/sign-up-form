@@ -22,4 +22,28 @@ const regex = {
 formElement.noValidate = true;
 
 
+// function to check  whether the typing is correct or not
+function checkError(input){
+
+    // if input is not required we leave the function
+    if(input.value.length === 0 && !input.required){
+        input.className = '';
+        return;
+    } 
+
+    // we add class to element according to regex rule
+    input.className = !regex[input.type].test(input.value) ?
+        "error-line" :
+        "success-line";
+    console.log(!regex[input.type].test(input.value));
+
+    // we set customValidaty depending on regex
+    if(!regex[input.type].test(input.value)){
+
+        input.setCustomValidity("bad input typing");
+    }
+    else {
+        input.setCustomValidity("");
+    }
+}
 
