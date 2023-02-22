@@ -58,28 +58,15 @@ function comparePasswords(){
     confirmInput.className = 'error';
 }
 
-
-// event listener for all inputs to check correct validation while typing
-inputs.forEach(input => {
-    input.addEventListener('input', e => {
-        checkError(e.target);       
-    })
-});
-
-// event listener to submit values
-// if some of inputs is wrong then show an 'error' message about 
-// this input
-formElement.addEventListener('submit', e => {
-    // turn off basic behaviour element
-    e.preventDefault();
-    
+// function show the result of validation inputs 
+function showErrors(){
     // loop over on each input to check validation and show error
     Array.from(formElement.elements).forEach(input => {
 
         // leave function if form element is not a 'input' element
         if(input.nodeName !== 'INPUT') return;
 
-        // clear input from 'error' class, also clear error message 
+      
         
 
         // leave if value has correct validation
@@ -88,9 +75,12 @@ formElement.addEventListener('submit', e => {
             return;
         };
         
+        // clear input from 'error' or 'success' class attribute
+          // clear input from class atribute, also clear error message 
         input.className = '';
         input.nextElementSibling.textContent = '';
     
+
         console.log(input.id + ": is valid : ", input.validity);
         
         // if(input.value.length === 0 && !input.required)  return;
@@ -111,13 +101,26 @@ formElement.addEventListener('submit', e => {
             input.nextElementSibling.textContent = `bad type value `;
             input.className = 'error';
         }
-        // else if(!regex[input.type].test(input.value)){
-        //     input.nextElementSibling.textContent = `bad type value `;
-        //     input.className = 'error';
-        //     return;
-        // }
 
     }); 
+}
+
+
+// event listener for all inputs to check correct validation while typing
+inputs.forEach(input => {
+    input.addEventListener('input', e => {
+        checkError(e.target);       
+    })
+});
+
+// event listener to submit values
+// if some of inputs is wrong then show an 'error' message about 
+// this input
+formElement.addEventListener('submit', e => {
+    // turn off basic behaviour element
+    e.preventDefault();
+    
+    showErrors();
 
     if(passwordInput.validity.valid === false || confirmInput.validity.valid === false)  return;
     comparePasswords();
