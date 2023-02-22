@@ -73,16 +73,23 @@ formElement.addEventListener('submit', e => {
     // turn off basic behaviour element
     e.preventDefault();
     
-    // loop over on each input to check validation
-    Array.from(inputs).forEach(input => {
-        
+    // loop over on each input to check validation and show error
+    Array.from(formElement.elements).forEach(input => {
+
+        // leave function if form element is not a 'input' element
+        if(input.nodeName !== 'INPUT') return;
+
         // clear input from 'error' class, also clear error message 
-        input.className = '';
-        input.nextElementSibling.textContent = '';
+        
 
         // leave if value has correct validation
-        if (input.validity.valid) return;
+        if (input.validity.valid) {
+            input.className = 'success';    
+            return;
+        };
         
+        input.className = '';
+        input.nextElementSibling.textContent = '';
     
         console.log(input.id + ": is valid : ", input.validity);
         
