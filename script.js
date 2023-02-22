@@ -39,7 +39,6 @@ function checkError(input){
 
     // we set customValidaty depending on regex
     if(!regex[input.type].test(input.value)){
-
         input.setCustomValidity("bad input typing");
     }
     else {
@@ -65,4 +64,55 @@ inputs.forEach(input => {
     input.addEventListener('input', e => {
         checkError(e.target);       
     })
+});
+
+// event listener to submit values
+// if some of inputs is wrong then show an 'error' message about 
+// this input
+formElement.addEventListener('submit', e => {
+    // turn off basic behaviour element
+    e.preventDefault();
+    
+    // loop over on each input to check validation
+    Array.from(inputs).forEach(input => {
+        
+        // clear input from 'error' class, also clear error message 
+        input.className = '';
+        input.nextElementSibling.textContent = '';
+
+        // leave if value has correct validation
+        if (input.validity.valid) return;
+        
+    
+        console.log(input.id + ": is valid : ", input.validity);
+        
+        // if(input.value.length === 0 && !input.required)  return;
+        
+        // check is input value empty
+        if(input.validity.valueMissing){
+            input.nextElementSibling.textContent = `${input.previousElementSibling.textContent} is empty!`;
+            input.className = 'error';    
+        }
+        // check is input value too shorst
+        else if(input.validity.tooShort){
+            input.nextElementSibling.textContent = `${input.id} requires at least ${input.minLength} characters!!!`;
+            input.className = 'error';
+        }
+
+        // check the input value has correct spelling in typing
+        else if(input.validity.customError){
+            input.nextElementSibling.textContent = `bad type value `;
+            input.className = 'error';
+        }
+        // else if(!regex[input.type].test(input.value)){
+        //     input.nextElementSibling.textContent = `bad type value `;
+        //     input.className = 'error';
+        //     return;
+        // }
+
+    }); 
+
+    if(passwordInput.validity.valid === false || confirmInput.validity.valid === false)  return;
+    comparePasswords();
+    
 });
