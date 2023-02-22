@@ -182,6 +182,15 @@ input {
     background-color: #fdfdfd;
 }
 
+.field input::placeholder {
+    font-size: 0.9rem;
+    color:rgb(209, 209, 209);
+}
+
+.field input:required {
+    border: 1px solid rgb(200, 198, 198);
+}
+
 .field input:focus {
     outline: none;
     border:  1px solid rgb(32, 112, 178);
@@ -230,24 +239,6 @@ input {
 
 /* validation selectors */
 
-
-
-
-
-/* .field input:enabled {
-    border: 1px solid black;
-} */
-
-.field input::placeholder {
-    font-size: 0.9rem;
-    color:rgb(209, 209, 209);
-}
-
-.field input:required {
-    border: 1px solid rgb(200, 198, 198);
-}
-
-
 .error {
     border-bottom: 1px solid red !important; 
 }
@@ -255,7 +246,3 @@ input {
 .success{
     border-bottom: 1px solid green !important;
 }
-
-/* .field input:invalid {
-    border: 1px solid red;
-} */
