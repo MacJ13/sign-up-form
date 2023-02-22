@@ -58,3 +58,11 @@ function comparePasswords(){
     passwordInput.className = 'error';
     confirmInput.className = 'error';
 }
+
+
+// event listener for all inputs to check correct validation while typing
+inputs.forEach(input => {
+    input.addEventListener('input', e => {
+        checkError(e.target);       
+    })
+});
