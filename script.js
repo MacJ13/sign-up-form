@@ -47,3 +47,14 @@ function checkError(input){
     }
 }
 
+// function compares password and confirm password input
+function comparePasswords(){
+    // leave the function if the input values are the same
+    if(passwordInput.value === confirmInput.value) return;
+
+    // add text about failure 
+    // add 'error' class to password inputs 
+    passwordInput.nextElementSibling.textContent = 'different passwords!!!'
+    passwordInput.className = 'error';
+    confirmInput.className = 'error';
+}
