@@ -68,7 +68,8 @@ function showErrors(){
 
         // leave if value has correct validation
         if (input.validity.valid) {
-            input.className = 'success';    
+            input.className = 'success';  
+            input.nextElementSibling.textContent = '';
             return;
         };
         
@@ -76,9 +77,6 @@ function showErrors(){
         // clear input from class atribute, also clear error message 
         input.className = '';
         input.nextElementSibling.textContent = '';
-    
-
-        console.log(input.id + ": is valid : ", input.validity);
         
         // if(input.value.length === 0 && !input.required)  return;
         
