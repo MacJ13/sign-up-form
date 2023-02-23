@@ -66,9 +66,6 @@ function showErrors(){
         // leave function if form element is not a 'input' element
         if(input.nodeName !== 'INPUT') return;
 
-      
-        
-
         // leave if value has correct validation
         if (input.validity.valid) {
             input.className = 'success';    
@@ -76,7 +73,7 @@ function showErrors(){
         };
         
         // clear input from 'error' or 'success' class attribute
-          // clear input from class atribute, also clear error message 
+        // clear input from class atribute, also clear error message 
         input.className = '';
         input.nextElementSibling.textContent = '';
     
@@ -120,8 +117,10 @@ formElement.addEventListener('submit', e => {
     // turn off basic behaviour element
     e.preventDefault();
     
+    // call function to show errors
     showErrors();
 
+    // leave event if password values are different
     if(passwordInput.validity.valid === false || confirmInput.validity.valid === false)  return;
     comparePasswords();
     
