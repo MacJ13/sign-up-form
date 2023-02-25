@@ -54,10 +54,18 @@ function checkError(input){
         input.className = 'error-line';
     }
 
-    // we set customValidaty depending on regex
-    else if(!regex[input.type].test(input.value)){
-        input.setCustomValidity("bad input typing");
+    else if(input.validity.tooShort){
+        input.className = 'error-line'
     }
+
+    // we set customValidaty depending on regex
+    // else if(!regex[input.type].test(input.value)){
+    //     input.setCustomValidity("bad input typing");
+    // }
+    else if(input.validity.patternMismatch){
+        input.className = 'error-line';    
+    }
+
     else {
         input.setCustomValidity("");
     }
