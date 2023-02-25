@@ -141,6 +141,14 @@ function showErrors(){
             input.nextElementSibling.textContent = 'bad type value'
             input.className = 'error';
         }
+        
+        // Checking  custom validity of comparision password inputs
+        else if(input.validity.customError && input.type === 'password'){
+                
+            passwordInput.nextElementSibling.textContent = `different passwords`;
+            passwordInput.className = 'error';
+            confirmInput.className = 'error';  
+    }
 
         // check the input value has correct spelling in typing
         // else if(input.validity.customError){
