@@ -21,7 +21,7 @@ const inputs = document.querySelectorAll('input');
 // object, with regex properties;
 const regex = {
     tel: `\\d{3}[\\-]\\d{3}[\\-]\\d{4}`,
-    text: `^[a-zA-Z][a-z]{2,}$`,
+    text: `^[a-zA-Z][a-zA-Z]{2,}$`,
     email: `^\\w+([\\.-]?\\w+)*@\\w+([\.-]?\\w+)*(\\.\\w{2,3})+$`,
     password: `(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}`,
 }
@@ -67,7 +67,7 @@ function checkError(input){
     }
 
     else {
-        input.setCustomValidity("");
+        input.className = 'success-line'
     }
 }
 
