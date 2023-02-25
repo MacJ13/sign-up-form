@@ -163,6 +163,12 @@ function showErrors(){
 }
 
 
+function validInputs(){
+    // we check whether or not all inputs are valid
+    return Array.from(inputs).every(input => input.validity.valid); 
+}
+
+
 // event listener for all inputs to check correct validation while typing
 inputs.forEach(input => {
     input.addEventListener('input', e => {
