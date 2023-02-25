@@ -148,7 +148,10 @@ function showErrors(){
             passwordInput.nextElementSibling.textContent = `different passwords`;
             passwordInput.className = 'error';
             confirmInput.className = 'error';  
-    }
+        }
+        else {
+            input.className = 'success';
+        }
 
         // check the input value has correct spelling in typing
         // else if(input.validity.customError){
