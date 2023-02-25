@@ -186,8 +186,10 @@ formElement.addEventListener('submit', e => {
     // call function to show errors
     showErrors();
 
+    // leave callback function if validInputs returns false;
+    if(!validInputs()) return;
     // leave event if password values are different
     // if(passwordInput.validity.valid === false || confirmInput.validity.valid === false)  return;
     // comparePasswords();
-    
+    console.log('valid inputs');
 });
