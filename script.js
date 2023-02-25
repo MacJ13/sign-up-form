@@ -92,16 +92,16 @@ function checkError(input){
 }
 
 // function compares password and confirm password input
-function comparePasswords(){
-    // leave the function if the input values are the same
-    if(passwordInput.value === confirmInput.value) return;
+// function comparePasswords(){
+//     // leave the function if the input values are the same
+//     if(passwordInput.value === confirmInput.value) return;
 
-    // add text about failure 
-    // add 'error' class to password inputs 
-    passwordInput.nextElementSibling.textContent = 'different passwords!!!'
-    passwordInput.className = 'error';
-    confirmInput.className = 'error';
-}
+//     // add text about failure 
+//     // add 'error' class to password inputs 
+//     passwordInput.nextElementSibling.textContent = 'different passwords!!!'
+//     passwordInput.className = 'error';
+//     confirmInput.className = 'error';
+// }
 
 // function show the result of validation inputs 
 function showErrors(){
@@ -170,7 +170,7 @@ formElement.addEventListener('submit', e => {
     showErrors();
 
     // leave event if password values are different
-    if(passwordInput.validity.valid === false || confirmInput.validity.valid === false)  return;
-    comparePasswords();
+    // if(passwordInput.validity.valid === false || confirmInput.validity.valid === false)  return;
+    // comparePasswords();
     
 });
