@@ -49,21 +49,41 @@ function checkError(input){
     //     "error-line" :
     //     "success-line";
     // console.log(!regex[input.type].test(input.value));
-
+    console.log(input.validity);
+    // checking is there input value
     if(input.validity.valueMissing){
         input.className = 'error-line';
     }
-
+    // checking is input value is too short
     else if(input.validity.tooShort){
         input.className = 'error-line'
     }
 
-    // we set customValidaty depending on regex
-    // else if(!regex[input.type].test(input.value)){
-    //     input.setCustomValidity("bad input typing");
-    // }
+   // checking pattern validity to input
     else if(input.validity.patternMismatch){
         input.className = 'error-line';    
+    }
+
+    // checking is password and confirm input values are the same 
+    else if(input.type === 'password' && !input.validity.patternMismatch){
+        passwordInput.className = 'success-line';
+
+        // we check if passwords value are different 
+        if(passwordInput.value !== confirmInput.value){
+            console.log('password are different');
+
+            // next we set password inputs validation
+            confirmInput.setCustomValidity('Different passwords!!!');
+            passwordInput.setCustomValidity('Different passwords!!!');
+
+            confirmInput.className = input.validity.customError ? 'error-line' : '' ;
+        } else {
+            console.log('passwords are the same');
+            confirmInput.className = 'success-line';
+            // we clear validation from password inputs
+            confirmInput.setCustomValidity('');
+            passwordInput.setCustomValidity('');
+        }
     }
 
     else {
