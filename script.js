@@ -106,7 +106,7 @@ function checkError(input){
 // function show the result of validation inputs 
 function showErrors(){
     // loop over on each input to check validation and show error
-    Array.from(formElement.elements).forEach(input => {
+    Array.from(inputs).forEach(input => {
 
         // leave function if form element is not a 'input' element
         // if(input.nodeName !== 'INPUT') return;
