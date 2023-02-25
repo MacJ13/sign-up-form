@@ -11,12 +11,25 @@ const phoneInput = document.getElementById('phone');
 const inputs = document.querySelectorAll('input');
 
 // object, with regex properties
+// const regex = {
+//     tel : new RegExp(/\d{3}[\-]\d{3}[\-]\d{4}/),
+//     text: new RegExp(/^[a-zA-Z][a-z]{2,}$/),
+//     email : new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/),
+//     password : new RegExp(/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/)
+// };
+
+// object, with regex properties;
 const regex = {
-    tel : new RegExp(/\d{3}[\-]\d{3}[\-]\d{4}/),
-    text: new RegExp(/^[a-zA-Z][a-z]{2,}$/),
-    email : new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/),
-    password : new RegExp(/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/)
-};
+    tel: `\\d{3}[\\-]\\d{3}[\\-]\\d{4}`,
+    text: `^[a-zA-Z][a-z]{2,}$`,
+    email: `^\\w+([\\.-]?\\w+)*@\\w+([\.-]?\\w+)*(\\.\\w{2,3})+$`,
+    password: `(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}`,
+}
+
+// Loading pattern attribute to each of inputs
+inputs.forEach(input => {
+    input.pattern = regex[input.type];
+});
 
 // set noValidate property to true, then data aren'te be validated in html
 formElement.noValidate = true;
