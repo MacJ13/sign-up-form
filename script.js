@@ -64,19 +64,20 @@ function showErrors(){
     Array.from(formElement.elements).forEach(input => {
 
         // leave function if form element is not a 'input' element
-        if(input.nodeName !== 'INPUT') return;
+        // if(input.nodeName !== 'INPUT') return;
 
         // leave if value has correct validation
-        if (input.validity.valid) {
-            input.className = 'success';  
-            input.nextElementSibling.textContent = '';
-            return;
-        };
+        // if (input.validity.valid) {
+        //     input.className = 'success';  
+        //     input.nextElementSibling.textContent = '';
+        //     return;
+        // };
         
         // clear input from 'error' or 'success' class attribute
         // clear input from class atribute, also clear error message 
-        input.className = '';
         input.nextElementSibling.textContent = '';
+        input.className = '';
+        
         
         // if(input.value.length === 0 && !input.required)  return;
         
@@ -91,11 +92,16 @@ function showErrors(){
             input.className = 'error';
         }
 
-        // check the input value has correct spelling in typing
-        else if(input.validity.customError){
-            input.nextElementSibling.textContent = `bad type value `;
+        else if(input.validity.patternMismatch){
+            input.nextElementSibling.textContent = 'bad type value'
             input.className = 'error';
         }
+
+        // check the input value has correct spelling in typing
+        // else if(input.validity.customError){
+        //     input.nextElementSibling.textContent = `bad type value `;
+        //     input.className = 'error';
+        // }
 
     }); 
 }
