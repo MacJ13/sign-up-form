@@ -32,13 +32,17 @@ function checkError(input){
     } 
 
     // we add class to element according to regex rule
-    input.className = !regex[input.type].test(input.value) ?
-        "error-line" :
-        "success-line";
-    console.log(!regex[input.type].test(input.value));
+    // input.className = !regex[input.type].test(input.value) ?
+    //     "error-line" :
+    //     "success-line";
+    // console.log(!regex[input.type].test(input.value));
+
+    if(input.validity.valueMissing){
+        input.className = 'error-line';
+    }
 
     // we set customValidaty depending on regex
-    if(!regex[input.type].test(input.value)){
+    else if(!regex[input.type].test(input.value)){
         input.setCustomValidity("bad input typing");
     }
     else {
