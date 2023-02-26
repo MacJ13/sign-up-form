@@ -10,13 +10,6 @@ const phoneInput = document.getElementById('phone');
 // all input element in signup form
 const inputs = document.querySelectorAll('input');
 
-// object, with regex properties
-// const regex = {
-//     tel : new RegExp(/\d{3}[\-]\d{3}[\-]\d{4}/),
-//     text: new RegExp(/^[a-zA-Z][a-z]{2,}$/),
-//     email : new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/),
-//     password : new RegExp(/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/)
-// };
 
 // object, with regex properties;
 const regex = {
@@ -92,18 +85,6 @@ function checkError(input){
     }
 }
 
-// function compares password and confirm password input
-// function comparePasswords(){
-//     // leave the function if the input values are the same
-//     if(passwordInput.value === confirmInput.value) return;
-
-//     // add text about failure 
-//     // add 'error' class to password inputs 
-//     passwordInput.nextElementSibling.textContent = 'different passwords!!!'
-//     passwordInput.className = 'error';
-//     confirmInput.className = 'error';
-// }
-
 
 function clearInputMessage(input){
     input.nextElementSibling.textContent = '';
@@ -153,10 +134,6 @@ function showErrors(){
 
     }); 
 }
-
-
-
-
 
 function validInputs(){
     // we check whether or not all inputs are valid
