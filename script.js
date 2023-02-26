@@ -104,6 +104,18 @@ function checkError(input){
 //     confirmInput.className = 'error';
 // }
 
+
+function clearInputMessage(input){
+    input.nextElementSibling.textContent = '';
+    input.className = '';
+}
+
+// function assign text to prompt class element and style input field element 
+function showInputMessage(input, msg){
+    input.nextElementSibling.textContent = msg || '';
+    input.className = msg ? 'error' : 'success';    
+}
+
 // function show the result of validation inputs 
 function showErrors(){
     // loop over on each input to check validation and show error
@@ -121,11 +133,14 @@ function showErrors(){
         
         // clear input from 'error' or 'success' class attribute
         // clear input from class atribute, also clear error message 
-        input.nextElementSibling.textContent = '';
-        input.className = '';
+        
         
         
         // if(input.value.length === 0 && !input.required)  return;
+
+
+        // clear input field with message and input class
+        clearInputMessage()
         
         // check is input value empty
         if(input.validity.valueMissing){
@@ -164,10 +179,8 @@ function showErrors(){
     }); 
 }
 
-function showInputMessage(input, msg){
-    input.nextElementSibling.textContent = msg || '';
-    input.className = msg ? 'error' : 'success';    
-}
+
+
 
 
 function validInputs(){
