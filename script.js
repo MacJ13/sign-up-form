@@ -36,12 +36,6 @@ function checkError(input){
         return;
     } 
 
-    // we add class to element according to regex rule
-    // input.className = !regex[input.type].test(input.value) ?
-    //     "error-line" :
-    //     "success-line";
-    // console.log(!regex[input.type].test(input.value));
-    console.log(input.validity);
     // checking is there input value
     if(input.validity.valueMissing){
         input.className = 'error-line';
@@ -79,7 +73,7 @@ function comparePasswords(){
 
         // add 'error-line' if passwords are different and confirm password has some values 
         confirmInput.className = passwordInput.validity.customError && confirmInput.value.length !== 0 ? 'error-line' : '' ;
-        
+
     } else {
         confirmInput.className = 'success-line';
         // we clear validation from password inputs
@@ -152,7 +146,6 @@ inputs.forEach(input => {
 
 // event listener to submit values
 // if some of inputs is wrong then show an 'error' message about 
-// this input
 formElement.addEventListener('submit', e => {
     // turn off basic behaviour element
     e.preventDefault();
@@ -160,10 +153,9 @@ formElement.addEventListener('submit', e => {
     // call function to show errors
     showErrors();
 
-    // leave callback function if validInputs returns false;
+    // leave callback form event function if one of inputs is invalid;
     if(!validInputs()) return;
-    // leave event if password values are different
-    // if(passwordInput.validity.valid === false || confirmInput.validity.valid === false)  return;
-    // comparePasswords();
+
+
     console.log('valid inputs');
 });
