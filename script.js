@@ -110,10 +110,10 @@ function clearInputMessage(input){
     input.className = '';
 }
 
-// function assign text to prompt class element and style input field element 
+// function assign text to prompt class element  
 function showInputMessage(input, msg){
     input.nextElementSibling.textContent = msg || '';
-    input.className = msg ? 'error' : 'success';    
+    input.className = msg ? 'error' : 'success';    //style input field element 
 }
 
 // function show the result of validation inputs 
@@ -137,11 +137,16 @@ function showErrors(){
         
         
         // if(input.value.length === 0 && !input.required)  return;
+        // leave looping input if input is valid 
+        if(input.validity.valid){
 
+            showInputMessage(input);
+            return;
+        }
 
         // clear input field with message and input class
-        clearInputMessage()
-        
+        clearInputMessage(input);
+
         // check is input value empty
         if(input.validity.valueMissing){
             showInputMessage(input, 'Input field is empty!');
@@ -167,7 +172,7 @@ function showErrors(){
             confirmInput.className = 'error';  
         }
         else {
-            showInputMessage(input);
+            
         }
 
         // check the input value has correct spelling in typing
