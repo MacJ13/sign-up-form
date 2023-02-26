@@ -10,7 +10,6 @@ const phoneInput = document.getElementById('phone');
 // all input element in signup form
 const inputs = document.querySelectorAll('input');
 
-
 // object, with regex properties;
 const regex = {
     tel: `\\d{3}[\\-]\\d{3}[\\-]\\d{4}`,
@@ -61,23 +60,8 @@ function checkError(input){
     else if(input.type === 'password' && !input.validity.patternMismatch){
         passwordInput.className = 'success-line';
 
-        // we check if passwords value are different 
-        if(passwordInput.value !== confirmInput.value){
-            console.log('password are different');
-
-            // next we set password inputs validation
-            confirmInput.setCustomValidity('Different passwords!!!');
-            passwordInput.setCustomValidity('Different passwords!!!');
-
-            // add 'error-line' if passwords are different and confirm password has some values 
-            confirmInput.className = passwordInput.validity.customError && confirmInput.value.length !== 0 ? 'error-line' : '' ;
-        } else {
-            console.log('passwords are the same');
-            confirmInput.className = 'success-line';
-            // we clear validation from password inputs
-            confirmInput.setCustomValidity('');
-            passwordInput.setCustomValidity('');
-        }
+        // we check if password values are the same or different 
+        comparePasswords();
     }
 
     else {
@@ -85,6 +69,24 @@ function checkError(input){
     }
 }
 
+// function compare 
+function comparePasswords(){
+    if(passwordInput.value !== confirmInput.value){
+
+        // next we set password inputs validation
+        confirmInput.setCustomValidity('Different passwords!!!');
+        passwordInput.setCustomValidity('Different passwords!!!');
+
+        // add 'error-line' if passwords are different and confirm password has some values 
+        confirmInput.className = passwordInput.validity.customError && confirmInput.value.length !== 0 ? 'error-line' : '' ;
+        
+    } else {
+        confirmInput.className = 'success-line';
+        // we clear validation from password inputs
+        confirmInput.setCustomValidity('');
+        passwordInput.setCustomValidity('');
+    }
+}
 
 function clearInputMessage(input){
     input.nextElementSibling.textContent = '';
