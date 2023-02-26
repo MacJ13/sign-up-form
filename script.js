@@ -1,5 +1,6 @@
 "use strict";
 
+const formMsgElement = document.querySelector('.form-message');
 const formElement = document.querySelector('.form');
 const passwordInput = document.getElementById('password');
 const confirmInput = document.getElementById('confirmpass');
@@ -148,13 +149,17 @@ formElement.addEventListener('submit', e => {
     // turn off basic behaviour element
     e.preventDefault();
     
+    if (!formMsgElement.classList.contains('hidden')) formMsgElement.classList.add('hidden');
+    
     // call function to show errors
     showErrors();
+
+
 
     // leave callback form event function if one of inputs is invalid;
     if(!validInputs()) return;
 
-    console.log('valid inputs');
+    formMsgElement.classList.remove('hidden');
 });
 
 
