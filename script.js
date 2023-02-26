@@ -121,22 +121,6 @@ function showErrors(){
     // loop over on each input to check validation and show error
     Array.from(inputs).forEach(input => {
 
-        // leave function if form element is not a 'input' element
-        // if(input.nodeName !== 'INPUT') return;
-
-        // leave if value has correct validation
-        // if (input.validity.valid) {
-        //     input.className = 'success';  
-        //     input.nextElementSibling.textContent = '';
-        //     return;
-        // };
-        
-        // clear input from 'error' or 'success' class attribute
-        // clear input from class atribute, also clear error message 
-        
-        
-        
-        // if(input.value.length === 0 && !input.required)  return;
         // leave looping input if input is valid 
         if(input.validity.valid){
             showInputMessage(input);
@@ -149,16 +133,12 @@ function showErrors(){
         // check is input value empty
         if(input.validity.valueMissing){
             showInputMessage(input, 'Input field is empty!');
-            // input.nextElementSibling.textContent = `Input field is empty!`;
-            // input.className = 'error';    
         }
         // check is input value too shorst
         else if(input.validity.tooShort){
             showInputMessage(input, `Input field requires at least ${input.minLength} characters!`);
-            // input.nextElementSibling.textContent = `Input field requires at least ${input.minLength} characters!`;
-            // input.className = 'error';
         }
-
+        // checking input correct pattern value
         else if(input.validity.patternMismatch){
             showInputMessage(input, 'Input field is bad typing!');
         }
@@ -170,12 +150,6 @@ function showErrors(){
             passwordInput.className = 'error';
             confirmInput.className = 'error';  
         }
-
-        // check the input value has correct spelling in typing
-        // else if(input.validity.customError){
-        //     input.nextElementSibling.textContent = `bad type value `;
-        //     input.className = 'error';
-        // }
 
     }); 
 }
