@@ -129,17 +129,17 @@ function showErrors(){
         
         // check is input value empty
         if(input.validity.valueMissing){
-            input.nextElementSibling.textContent = `${input.previousElementSibling.textContent} is empty!`;
+            input.nextElementSibling.textContent = `Input field is empty!`;
             input.className = 'error';    
         }
         // check is input value too shorst
         else if(input.validity.tooShort){
-            input.nextElementSibling.textContent = `${input.id} requires at least ${input.minLength} characters!!!`;
+            input.nextElementSibling.textContent = `Input field requires at least ${input.minLength} characters!!!`;
             input.className = 'error';
         }
 
         else if(input.validity.patternMismatch){
-            input.nextElementSibling.textContent = 'bad type value'
+            input.nextElementSibling.textContent = 'Input field is bad typing'
             input.className = 'error';
         }
         
