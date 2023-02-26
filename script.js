@@ -1,6 +1,6 @@
 "use strict";
 
-// password input fields
+const formElement = document.querySelector('.form');
 const passwordInput = document.getElementById('password');
 const confirmInput = document.getElementById('confirmpass');
 
@@ -24,6 +24,7 @@ function initForm(){
     inputs.forEach(input => {
         input.pattern = regex[input.type];
     });
+
 }
 
 
