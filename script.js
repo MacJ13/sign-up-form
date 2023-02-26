@@ -139,7 +139,6 @@ function showErrors(){
         // if(input.value.length === 0 && !input.required)  return;
         // leave looping input if input is valid 
         if(input.validity.valid){
-
             showInputMessage(input);
             return;
         }
@@ -170,9 +169,6 @@ function showErrors(){
             passwordInput.nextElementSibling.textContent = `different passwords`;
             passwordInput.className = 'error';
             confirmInput.className = 'error';  
-        }
-        else {
-            
         }
 
         // check the input value has correct spelling in typing
