@@ -129,29 +129,30 @@ function showErrors(){
         
         // check is input value empty
         if(input.validity.valueMissing){
-            input.nextElementSibling.textContent = `Input field is empty!`;
-            input.className = 'error';    
+            showInputMessage(input, 'Input field is empty!');
+            // input.nextElementSibling.textContent = `Input field is empty!`;
+            // input.className = 'error';    
         }
         // check is input value too shorst
         else if(input.validity.tooShort){
-            input.nextElementSibling.textContent = `Input field requires at least ${input.minLength} characters!!!`;
-            input.className = 'error';
+            showInputMessage(input, `Input field requires at least ${input.minLength} characters!`);
+            // input.nextElementSibling.textContent = `Input field requires at least ${input.minLength} characters!`;
+            // input.className = 'error';
         }
 
         else if(input.validity.patternMismatch){
-            input.nextElementSibling.textContent = 'Input field is bad typing'
-            input.className = 'error';
+            showInputMessage(input, 'Input field is bad typing!');
         }
         
         // Checking  custom validity of comparision password inputs
         else if(input.validity.customError && input.type === 'password'){
-                
+            
             passwordInput.nextElementSibling.textContent = `different passwords`;
             passwordInput.className = 'error';
             confirmInput.className = 'error';  
         }
         else {
-            input.className = 'success';
+            showInputMessage(input);
         }
 
         // check the input value has correct spelling in typing
@@ -161,6 +162,11 @@ function showErrors(){
         // }
 
     }); 
+}
+
+function showInputMessage(input, msg){
+    input.nextElementSibling.textContent = msg || '';
+    input.className = msg ? 'error' : 'success';    
 }
 
 
