@@ -76,7 +76,8 @@ function checkError(input){
             confirmInput.setCustomValidity('Different passwords!!!');
             passwordInput.setCustomValidity('Different passwords!!!');
 
-            confirmInput.className = input.validity.customError ? 'error-line' : '' ;
+            // add 'error-line' if passwords are different and confirm password has some values 
+            confirmInput.className = passwordInput.validity.customError && confirmInput.value.length !== 0 ? 'error-line' : '' ;
         } else {
             console.log('passwords are the same');
             confirmInput.className = 'success-line';
