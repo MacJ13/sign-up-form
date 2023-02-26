@@ -18,13 +18,16 @@ const regex = {
     password: `(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}`,
 }
 
-// Loading pattern attribute to each of inputs
-inputs.forEach(input => {
-    input.pattern = regex[input.type];
-});
+// function to loading up all initial values for form elements
+function initForm(){
+    // set noValidate property to true, then data aren'te be validated in html
+    formElement.noValidate = true;
 
-// set noValidate property to true, then data aren'te be validated in html
-formElement.noValidate = true;
+    // Loading pattern attribute to each of inputs
+    inputs.forEach(input => {
+        input.pattern = regex[input.type];
+    });
+}
 
 
 // function to check  whether the typing is correct or not
@@ -53,9 +56,7 @@ function checkError(input){
     // checking is password and confirm input values are the same 
     else if(input.type === 'password' && !input.validity.patternMismatch){
         passwordInput.className = 'success-line';
-
-        // we check if password values are the same or different 
-        comparePasswords();
+        comparePasswords(); // we check if password values are the same or different 
     }
 
     else {
@@ -145,7 +146,6 @@ inputs.forEach(input => {
 });
 
 // event listener to submit values
-// if some of inputs is wrong then show an 'error' message about 
 formElement.addEventListener('submit', e => {
     // turn off basic behaviour element
     e.preventDefault();
@@ -156,6 +156,8 @@ formElement.addEventListener('submit', e => {
     // leave callback form event function if one of inputs is invalid;
     if(!validInputs()) return;
 
-
     console.log('valid inputs');
 });
+
+
+initForm();
