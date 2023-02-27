@@ -215,6 +215,19 @@ input[type="checkbox"] {
     
 }
 
+.control {
+    display: flex;
+    align-items: center;
+}
+
+.control > label {
+    text-transform: capitalize;
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: rgb(164, 164, 164);
+}
+
 .btn {
     font-size: 1rem;
     font-weight: 600;
