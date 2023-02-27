@@ -47,13 +47,18 @@ input {
     font-weight: 500;
 }
 
+input[type="checkbox"] {
+    appearance: auto;
+    accent-color: #596D48;
+    height: 1rem;
+    width: 1rem;
+}
 
 .container {
     display: flex;
     width: 100%;
     min-height: 100vh;
     justify-content: center;
-    
  }
 
  .column {
