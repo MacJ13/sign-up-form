@@ -121,7 +121,7 @@ function showErrors(){
         }
         
         // Checking  custom validity of comparision password inputs
-        else if(input.validity.customError && input.type === 'password'){
+        else if(input.validity.customError && (input.id === 'password' || input.id === 'confirmpass')){
             
             passwordInput.nextElementSibling.textContent = `different passwords`;
             passwordInput.className = 'error';
