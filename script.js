@@ -1,9 +1,12 @@
 "use strict";
 
+// dom element variables
 const formMsgElement = document.querySelector('.form-message');
 const formElement = document.querySelector('.form');
 const passwordInput = document.getElementById('password');
 const confirmInput = document.getElementById('confirmpass');
+
+const checkbox = document.getElementById('hidden_visible');
 
 // all input field element in signup form
 const inputs = document.querySelectorAll('.input-field');
