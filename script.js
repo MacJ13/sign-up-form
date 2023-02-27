@@ -11,6 +11,9 @@ const checkbox = document.getElementById('hidden_visible');
 // all input field element in signup form
 const inputs = document.querySelectorAll('.input-field');
 
+// note !! we can change type of these input fields by checkbox !!!
+const passwordInputs = document.querySelectorAll('input[type="password"]');
+
 // object, with regex properties;
 const regex = {
     tel: `\\d{3}[\\-]\\d{3}[\\-]\\d{4}`,
@@ -167,8 +170,8 @@ formElement.addEventListener('submit', e => {
 
 
 checkbox.addEventListener('change', () => {
-    
-    
+    const type = checkbox.checked ? 'text' : 'password';
+    passwordInputs.forEach(input => input.type = type);
 })
 
 
