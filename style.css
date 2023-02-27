@@ -221,7 +221,6 @@ input[type="checkbox"] {
 }
 
 .control > label {
-    text-transform: capitalize;
     margin-left: 0.5rem;
     font-size: 0.8rem;
     font-weight: 400;
