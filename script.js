@@ -5,8 +5,8 @@ const formElement = document.querySelector('.form');
 const passwordInput = document.getElementById('password');
 const confirmInput = document.getElementById('confirmpass');
 
-// all input element in signup form
-const inputs = document.querySelectorAll('input');
+// all input field element in signup form
+const inputs = document.querySelectorAll('.input-field');
 
 // object, with regex properties;
 const regex = {
