@@ -4,7 +4,7 @@
 const formMsgElement = document.querySelector('.form-message');
 const formElement = document.querySelector('.form');
 const passwordInput = document.getElementById('password');
-const confirmInput = document.getElementById('confirmpass');
+const confirmInput = document.getElementById('password_confirm');
 
 const checkbox = document.getElementById('hidden_visible');
 
@@ -56,7 +56,7 @@ function checkError(input){
     }
 
     // checking is password and confirm input values are the same 
-    else if((input.id === 'password' || input.id === 'confirmpass') && !input.validity.patternMismatch){
+    else if((input.id === 'password' || input.id === 'password_confirm') && !input.validity.patternMismatch){
         passwordInput.className = 'success-line';
         comparePasswords(); // we check if password values are the same or different 
     }
@@ -124,7 +124,7 @@ function showErrors(){
         }
         
         // Checking  custom validity of comparision password inputs
-        else if(input.validity.customError && (input.id === 'password' || input.id === 'confirmpass')){
+        else if(input.validity.customError && (input.id === 'password' || input.id === 'password_confirm')){
             
             passwordInput.nextElementSibling.textContent = `different passwords`;
             passwordInput.className = 'error';
@@ -164,6 +164,12 @@ formElement.addEventListener('submit', e => {
 
     formMsgElement.classList.remove('hidden');
 });
+
+
+checkbox.addEventListener('change', () => {
+    
+    
+})
 
 
 initForm();
