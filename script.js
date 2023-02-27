@@ -53,7 +53,7 @@ function checkError(input){
     }
 
     // checking is password and confirm input values are the same 
-    else if(input.type === 'password' && !input.validity.patternMismatch){
+    else if((input.id === 'password' || input.id === 'confirmpass') && !input.validity.patternMismatch){
         passwordInput.className = 'success-line';
         comparePasswords(); // we check if password values are the same or different 
     }
